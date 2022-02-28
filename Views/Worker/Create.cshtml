@@ -1,0 +1,94 @@
+@model WebProjectRevision.Dtos.CreateWorkerRequestModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebProjectRevision</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class=" card col-md-6">
+            <div class="card-body ">
+                <div class="bg-light">
+                    <h1 class="tagcolor" style="color:mediumblue">Create</h1>
+                    <p class="tagcolor" style="color:mediumblue">Please fill in this form to add a worker</p>
+                    <hr class="tagcolor" style="color:mediumblue">
+
+                </div>
+                <form asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <label asp-for="FirstName" class="control-label">FirstName</label>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                         <div class="form-group col-sm-6">
+                            <label asp-for="MiddleName" class="control-label">MiddleName</label>
+                            <input asp-for="MiddleName" class="form-control" />
+                            <span asp-validation-for="MiddleName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label asp-for="LastName" class="control-label">Lastname</label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                         <div class="form-group col-sm-6">
+                            <label asp-for="PhoneNumber" class="control-label">PhoneNumber</label>
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-6">
+                            <label asp-for="Age" class="control-label">Age</label>
+                            <input asp-for="Age" class="form-control" />
+                            <span asp-validation-for="Age" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label asp-for="sex" class="control-label">Gender</label>
+                            <input asp-for="sex" class="form-control" />
+                            <span asp-validation-for="sex" class="text-danger"></span>
+                      
+                      @*  </div>
+                               <div class="form-group col-sm-6">
+                            <label asp-for="DepartmentId" class="control-label"></label>
+                            <input asp-for="DepartmentId" class="form-control" />
+                            <span asp-validation-for="DepartmentId" class="text-danger"></span>
+                        </div> 
+                *@
+                        
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6" style="margin-top: 20px; font-size: larger; font-weight: bold; color: darkcyan">
+                            <label  class="control-label">Department</label>
+                            <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.Department">
+                                <option value="">--Select Department--</option>
+                            </select>
+                        </div>
+                       
+                    </div>
+                    
+                    <div class="form-group ">
+                        <input href="#myModal" type="submit" value="Submit" class="btn btn-success trigger-btn col-sm-12" data-toggle="modal" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,112 @@
+@model IEnumerable<WebProjectRevision.Dtos.WorkerDto>
+
+    
+<div class="card-header" style="background-color:midnightblue;">
+    <div class="card-title">
+        <h1 class="text-center" color="White" >Workers</h1>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+             <td>
+                @Html.DisplayNameFor(model => model.MiddleName)
+            </td>
+
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>            
+            
+             <td>
+                @Html.DisplayNameFor(model=> model.Sex)
+            </td>
+
+            <td>
+                @Html.DisplayNameFor(model=> model.DepartmentName)
+            </td>
+
+            <th>
+                Update
+            </th>
+
+            <th>
+                Details
+            </th>
+
+            <th>
+                Delete
+            </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var worker in Model)
+        {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => worker.Id)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => worker.FirstName)
+            </td>
+
+             <td>
+                @Html.DisplayFor(modelItem => worker.MiddleName)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => worker.LastName)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => worker.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => worker.Age)
+            </td>
+            
+            
+             <td>
+                @Html.DisplayFor(modelItem => worker.Sex)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => worker.DepartmentName)
+            </td>
+
+           
+            
+            <td>
+                <a asp-action="Update" asp-route-id="@worker.Id">Update</a>
+            </td>
+
+            <td>
+                <a asp-action="Details" asp-route-id="@worker.Id">Details</a>
+            </td>
+            
+            <td>
+                <a asp-action="Delete" asp-route-id="@worker.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<button style="background-color:wheat;"><a asp-controller="Worker" asp-action="Create">Create Worker</a> </button>
+
