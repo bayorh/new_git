@@ -12,6 +12,7 @@ namespace WebProjectRevision.Dtos
     public class CreateDepartmentRequestModel
     {
         public string DepartmentName { get; set; }
+        
         public string DepartmentCode { get; set; }
     }
     public class UpdateDepartmentRequestModel
